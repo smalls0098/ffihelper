@@ -1,0 +1,13 @@
+[package]
+name = "ffihelper"
+version = "0.1.0"
+authors = ["smalls smalls0098@gmail.com"]
+description = "ffi helper"
+keywords = ["ffi", "helper"]
+license = "MIT"
+edition = "2021"
+
+[dependencies]
+paste = { version = "1.0" }
+anyhow = { version = "1.0" }
+bytes = { version = "1.10" }
