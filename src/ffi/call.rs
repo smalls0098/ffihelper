@@ -4,11 +4,10 @@ use crate::ffi::buffer::FFIBuffer;
 
 #[repr(C)]
 pub struct FFIErrStatus {
-    pub code: FFIStatusCode,
+    pub code: u32,
     pub error: ManuallyDrop<FFIBuffer>,
 }
 
-#[repr(u32)]
 #[derive(Debug, PartialEq, Eq)]
 pub enum FFIStatusCode {
     Success,
