@@ -4,7 +4,7 @@ use crate::ffi::buffer::FFIBuffer;
 
 #[repr(C)]
 pub struct FFIErrStatus {
-    pub code: u32,
+    pub code: i32,
     pub error: ManuallyDrop<FFIBuffer>,
 }
 
@@ -16,10 +16,10 @@ pub enum FFIStatusCode {
     Cancelled,
 }
 
-impl TryFrom<u32> for FFIStatusCode {
-    type Error = u32;
+impl TryFrom<i32> for FFIStatusCode {
+    type Error = i32;
 
-    fn try_from(value: u32) -> Result<Self, u32> {
+    fn try_from(value: i32) -> Result<Self, i32> {
         match value {
             0 => Ok(Self::Success),
             1 => Ok(Self::Error),
@@ -30,8 +30,8 @@ impl TryFrom<u32> for FFIStatusCode {
     }
 }
 
-impl Into<u32> for FFIStatusCode {
-    fn into(self) -> u32 {
-        self as u32
+impl Into<i32> for FFIStatusCode {
+    fn into(self) -> i32 {
+        self as i32
     }
 }
